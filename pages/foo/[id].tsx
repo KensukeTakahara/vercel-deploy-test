@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async () => {
 export async function getStaticPaths() {
   console.log("foo getStaticPaths");
   return {
-    paths: [{ params: { id: 1 }}],
+    paths: [{ params: { id: "1" }}],
     // Enable statically generating additional pages
     // For example: `/posts/3`
     fallback: false,
