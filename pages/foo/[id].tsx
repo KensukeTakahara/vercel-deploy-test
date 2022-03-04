@@ -1,13 +1,13 @@
-import type { NextPage, GetStaticProps } from "next";
+import type { NextPage, GetServerSideProps } from "next";
 // import type { NextPage } from "next";
 import { useRouter } from "next/router";
 
-export const getStaticProps: GetStaticProps = async () => {
-  console.log("foo getStaticProps 1");
+export const getServerSideProps: GetServerSideProps = async () => {
+  console.log("foo getServerSideProps 1");
   const data = await fetch("https://www.yahoo.co.jp/").then((res) =>
     res.text()
   );
-  console.log("foo getStaticProps 2");
+  console.log("foo getServerSideProps 2");
 
   if (data.length > 1000) {
     return {
@@ -19,7 +19,7 @@ export const getStaticProps: GetStaticProps = async () => {
     };
   }
 
-  console.log("foo getStaticProps 3");
+  console.log("foo getServerSideProps 3");
   return {
     props: { data: "empty" }, // will be passed to the page component as props
   };
